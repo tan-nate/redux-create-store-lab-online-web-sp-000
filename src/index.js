@@ -2,16 +2,16 @@
 
 function createStore(reducer) {
   let state;
- 
+
   function dispatch(action) {
     state = reducer(state, action);
     render();
   }
- 
+
   function getState() {
     return state;
   };
- 
+
   return {
     dispatch,
     getState
@@ -42,7 +42,7 @@ function render() {
 let store = createStore(candyReducer) // createStore takes the reducer reducer as an argument
 store.dispatch({ type: '@@INIT' });
 let button = document.getElementById('button');
- 
+
 button.addEventListener('click', () => {
   store.dispatch({ type: 'INCREASE_COUNT' });
 });
